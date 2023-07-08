@@ -2,9 +2,11 @@ import "@fontsource-variable/inter";
 
 import React from "react";
 import ReactDOM from "react-dom/client";
-import {ChakraProvider, ColorModeScript, extendTheme} from "@chakra-ui/react";
+import {ChakraProvider, ColorModeScript, Spinner, extendTheme} from "@chakra-ui/react";
 
-import EtherProviderContextProvider from "./connection/EtherProviderContext";
+import EtherProviderContextProvider, {
+  useEtherProvider
+} from "./connection/EtherProviderContext";
 import {QueryClient, QueryClientProvider} from "react-query";
 
 import {RouterProvider, createBrowserRouter} from "react-router-dom";
@@ -13,6 +15,7 @@ import {CATEGORIES, PROJECTS} from "./project/projectTypes";
 import HomePage from "./home/HomePage";
 import MyAccountPage from "./my-account/MyAccountPage";
 import CategoryDetailPage from "./category/CategoryDetailPage";
+// import SafeTest from "./safe/SafeTest";
 
 // Temporary fix for BigInt serialization
 (BigInt.prototype as any).toJSON = function () {
@@ -42,6 +45,17 @@ const theme = extendTheme({
 // Create a client
 const queryClient = new QueryClient();
 
+export default function App() {
+  const {providerState} = useEtherProvider();
+  const isAccountLoading =
+    providerState.status === "loading" ||
+    (providerState.status === "connected" && !providerState.accountReady);
+
+  if (isAccountLoading) return <Spinner />;
+
+  return <RouterProvider router={router} />;
+}
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -68,6 +82,10 @@ const router = createBrowserRouter([
     }),
     element: <CategoryDetailPage />
   }
+  // {
+  //   path: "/safe",
+  //   element: <SafeTest />
+  // }
 ]);
 
 root.render(
@@ -84,7 +102,7 @@ root.render(
       <ColorModeScript initialColorMode={theme.config.initialColorMode} />
       <QueryClientProvider client={queryClient}>
         <EtherProviderContextProvider>
-          <RouterProvider router={router} />
+          <App />
         </EtherProviderContextProvider>
       </QueryClientProvider>
     </ChakraProvider>
