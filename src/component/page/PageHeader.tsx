@@ -1,3 +1,4 @@
+import logo192 from "../../asset/logo192.png";
 import {ChevronDownIcon, MoonIcon, SunIcon} from "@chakra-ui/icons";
 import {
   Flex,
@@ -10,7 +11,8 @@ import {
   Heading,
   useColorMode,
   ButtonGroup,
-  IconButton
+  IconButton,
+  Image
 } from "@chakra-ui/react";
 import {useEtherProvider} from "../../connection/EtherProviderContext";
 import {useNavigate} from "react-router-dom";
@@ -26,8 +28,14 @@ export default function PageHeader() {
       width={"100%"}
       gap={"12px"}
       flexWrap={"wrap"}>
-      <Heading as={"button"} onClick={() => navigate("/")}>
-        {"🚀 Impactus"}
+      <Heading
+        as={"button"}
+        onClick={() => navigate("/")}
+        display={"flex"}
+        gap={"10px"}
+        alignItems={"center"}>
+        <Image src={logo192} height={"52px"} />
+        {"Impactus"}
       </Heading>
 
       {hasConnectedWallet ? (
