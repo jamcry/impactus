@@ -1,30 +1,20 @@
-import React from "react";
 import Page from "../component/page/Page";
-import {Divider, Flex, Grid, Heading, Image, Text} from "@chakra-ui/react";
+import {Badge, Divider, Grid, Heading, Image, Text} from "@chakra-ui/react";
 import ThreeBoxes from "../dummy/ThreeBoxes";
-import {nftContractAbi} from "../contract/nftContractAbi";
 import {useEtherProvider} from "../connection/EtherProviderContext";
-import {ethers} from "ethers";
 import {useQuery} from "react-query";
 import {NFT_IDS} from "../contract/nftConstants";
 import {getIpfsImageLink, getIpfsHashFromUrl} from "../contract/nftUtils";
+import {useContracts} from "../contract/contractConstants";
 
 interface MyAccountPageProps {}
 
-function useNFTContract() {
+function useNFTContractMethods() {
   const {providerState, defaultAccount} = useEtherProvider();
   if (providerState.status !== "connected") {
     throw new Error("provider not connected");
   }
-
-  const nftContract = new ethers.Contract(
-    "0xc2b2417056d6d9031992E8935256A99e7b4Df9e7",
-    nftContractAbi,
-    providerState.provider
-  );
-  console.log({
-    nftContract
-  });
+  const {nftContract} = useContracts();
 
   const getMyNFTs = async () => {
     const myNFTs = await nftContract.balanceOfBatch(
@@ -63,13 +53,12 @@ function useNFTContract() {
   };
 
   return {
-    nftContract,
     getMyNFTs
   };
 }
 
 function MyAccountPage(props: MyAccountPageProps) {
-  const {nftContract, getMyNFTs} = useNFTContract();
+  const {getMyNFTs} = useNFTContractMethods();
   const getMyNFTsQuery = useQuery(
     "getMyNFTs",
     async () => {
@@ -123,6 +112,9 @@ function MyAccountPage(props: MyAccountPageProps) {
                 <Heading size={"md"} mb={"12px"}>
                   {nft.name}
                 </Heading>
+                <Badge borderRadius={"25px"} width={"max-content"} mb={"12px"}>
+                  Owned amount: {nft.ownedAmount}
+                </Badge>
 
                 <Text>{nft.description}</Text>
               </Grid>

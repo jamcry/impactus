@@ -1,6 +1,6 @@
 import React from "react";
 import Page from "../component/page/Page";
-import {Heading, Flex, Tag, Divider} from "@chakra-ui/react";
+import {Heading, Flex, Tag, Divider, Grid} from "@chakra-ui/react";
 import {CATEGORIES, PROJECTS} from "../project/projectTypes";
 import ProjectCard from "../project/card/ProjectCard";
 import {Link} from "react-router-dom";
@@ -24,11 +24,17 @@ function HomePage(props: HomePageProps) {
       <Divider my={"24px"} />
 
       <Heading mb={"12px"}>Projects</Heading>
-      <Flex gap={"32px"}>
+      <Grid
+        templateColumns={{
+          lg: "repeat(3, 1fr)",
+          md: "repeat(2, 1fr)",
+          sm: "1fr"
+        }}
+        gap={"24px"}>
         {PROJECTS.map((project) => (
           <ProjectCard key={`project-${project.id}`} project={project} />
         ))}
-      </Flex>
+      </Grid>
     </Page>
   );
 }

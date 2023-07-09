@@ -15,7 +15,7 @@ import {CATEGORIES, PROJECTS} from "./project/projectTypes";
 import HomePage from "./home/HomePage";
 import MyAccountPage from "./my-account/MyAccountPage";
 import CategoryDetailPage from "./category/CategoryDetailPage";
-// import SafeTest from "./safe/SafeTest";
+import SafeTest from "./safe/SafeTest";
 
 // Temporary fix for BigInt serialization
 (BigInt.prototype as any).toJSON = function () {
@@ -28,13 +28,6 @@ const theme = extendTheme({
   config: {
     initialColorMode: "dark",
     useSystemColorMode: false
-  },
-  styles: {
-    global: {
-      body: {
-        bg: "#101010"
-      }
-    }
   },
   fonts: {
     heading: `'Inter Variable', sans-serif`,
@@ -81,11 +74,11 @@ const router = createBrowserRouter([
       category: CATEGORIES.find((p) => p.id === params.categoryId)
     }),
     element: <CategoryDetailPage />
+  },
+  {
+    path: "/safe",
+    element: <SafeTest />
   }
-  // {
-  //   path: "/safe",
-  //   element: <SafeTest />
-  // }
 ]);
 
 root.render(
