@@ -77,13 +77,13 @@ function MyAccountPage(props: MyAccountPageProps) {
 
       <Divider my={"20px"} />
 
-      <Heading size={"md"} mb={"12px"}>
+      {/* <Heading size={"md"} mb={"12px"}>
         My Donations
       </Heading>
 
       <ThreeBoxes />
 
-      <Divider my={"20px"} />
+      <Divider my={"20px"} /> */}
 
       <Heading size={"md"} mb={"12px"}>
         My NFTS

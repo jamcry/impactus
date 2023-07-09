@@ -48,7 +48,7 @@ function ProjectDetailPage(props: ProjectDetailPageProps) {
         approveTxn
       });
       // todo: update id
-      const donateTxn = await donate(amount, 10);
+      const donateTxn = await donate(amount, Number(project.sdgNftIds[0]));
 
       return {
         approveTxn,
@@ -97,7 +97,7 @@ function ProjectDetailPage(props: ProjectDetailPageProps) {
                 <Tr>
                   <Td>SDG Category</Td>
                   <Td isNumeric>
-                    <Badge>{"Cat1"}</Badge>
+                    <Badge>{project.sdgNftIds}</Badge>
                   </Td>
                 </Tr>
 
