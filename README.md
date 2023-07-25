@@ -1,46 +1,21 @@
-# Getting Started with Create React App
+# Impactus Web Application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Empowering Social Change through Blockchain. Donate to Sustainable Development Goals, Earn SDGS NFTs, Make an Impact.
+This project was developed for [ETHBarcelona 2023 Hackathon](https://ethbarcelona.devfolio.co/).
 
-## Available Scripts
+- **🌐 Live Demo:** https://impactus-indol.vercel.app/
+- **🔗 See on Devfolio:** https://devfolio.co/projects/impactus-867a
 
-In the project directory, you can run:
+### The problem Impactus solves
 
-### `npm start`
+In today's world, we face a multitude of social and environmental challenges, from poverty and inequality to climate change and environmental degradation. The United Nations' Sustainable Development Goals (SDGs) provide a roadmap to address these challenges, but progress has been slow and uneven. Traditional methods of funding and supporting these goals have proven insufficient, and public engagement in these issues remains low.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Impactus aims to solve these problems by leveraging the power of blockchain technology. It creates a decentralized platform where users can fund projects that contribute to the SDGs. This not only provides a new source of funding for these crucial projects, but also democratizes the process, allowing anyone, anywhere, to contribute to global development goals.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+A key innovation of Impactus is the successful extension and implementation of the ERC-1155 standard, which is used for fractional NFTs. This allows us to fractionalize the 17 SDGs into 17 unique NFTs, each of which can be broken down into smaller pieces. This provides a novel way to represent and track contributions to each SDG, and opens up new possibilities for engagement and investment.
 
-### `npm test`
+Moreover, Impactus addresses the lack of transparency and accountability often associated with charitable donations. With blockchain, every transaction is recorded and visible, ensuring that funds are being used as intended.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Impactus also solves the problem of donor engagement. Traditional donations provide little in return for the donor, beyond the knowledge of having done good. Impactus changes this by providing donors with an NFT that represents the SDG goal their donation supports. This not only serves as a tangible symbol of their contribution, but also has the potential to become a valuable asset in its own right, providing an additional incentive for donation.
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+Finally, Impactus provides a solution to the problem of project validation.
